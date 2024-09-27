@@ -12,12 +12,22 @@ namespace PetShopV2.Data
     using System;
     using System.Data.Entity;
     using System.Data.Entity.Infrastructure;
+
     
     public partial class Stepanyan_GeorgyEntities : DbContext
     {
+        public static Stepanyan_GeorgyEntities _context;
         public Stepanyan_GeorgyEntities()
             : base("name=Stepanyan_GeorgyEntities")
         {
+        }
+        public static Stepanyan_GeorgyEntities GetContext()
+        {
+            if (_context == null)
+            {
+                _context = new Stepanyan_GeorgyEntities(); 
+            }
+            return _context;
         }
     
         protected override void OnModelCreating(DbModelBuilder modelBuilder)
@@ -39,6 +49,7 @@ namespace PetShopV2.Data
         public virtual DbSet<Street> Street { get; set; }
         public virtual DbSet<Supplier> Supplier { get; set; }
         public virtual DbSet<sysdiagrams> sysdiagrams { get; set; }
+        public virtual DbSet<Units> Units { get; set; }
         public virtual DbSet<User> User { get; set; }
     }
 }

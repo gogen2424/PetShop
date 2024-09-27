@@ -14,31 +14,25 @@ namespace PetShopV2.Data
     
     public partial class Product
     {
-        [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2214:DoNotCallOverridableMethodsInConstructors")]
-        public Product()
-        {
-            this.OrderProduct = new HashSet<OrderProduct>();
-        }
-    
         public int Id { get; set; }
         public Nullable<int> IdProductName { get; set; }
         public Nullable<int> IdManufacture { get; set; }
         public Nullable<int> IdSupplier { get; set; }
         public string ProductArticleNumber { get; set; }
-        public string ProductCost { get; set; }
+        public Nullable<decimal> ProductCost { get; set; }
         public string ProductDiscountAmount { get; set; }
         public string DiscountNow { get; set; }
-        public string ProductQuantityInStock { get; set; }
+        public Nullable<int> ProductQuantityInStock { get; set; }
         public string ProductDesription { get; set; }
         public string PhotoName { get; set; }
-        public string ProductPhoto { get; set; }
+        public byte[] ProductPhoto { get; set; }
+        public Nullable<int> IdUnits { get; set; }
         public Nullable<int> IdCategory { get; set; }
     
         public virtual Category Category { get; set; }
         public virtual Manufacture Manufacture { get; set; }
-        [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
-        public virtual ICollection<OrderProduct> OrderProduct { get; set; }
         public virtual ProductName ProductName { get; set; }
         public virtual Supplier Supplier { get; set; }
+        public virtual Units Units { get; set; }
     }
 }

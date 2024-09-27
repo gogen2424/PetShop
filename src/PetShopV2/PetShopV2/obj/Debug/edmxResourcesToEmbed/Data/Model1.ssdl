@@ -5,28 +5,28 @@
       <PropertyRef Name="Id" />
     </Key>
     <Property Name="Id" Type="int" Nullable="false" />
-    <Property Name="Name" Type="nchar" MaxLength="10" />
+    <Property Name="Name" Type="nchar" MaxLength="150" />
   </EntityType>
   <EntityType Name="City">
     <Key>
       <PropertyRef Name="Id" />
     </Key>
     <Property Name="Id" Type="int" Nullable="false" />
-    <Property Name="Name" Type="nchar" MaxLength="20" />
+    <Property Name="Name" Type="nchar" MaxLength="150" />
   </EntityType>
   <EntityType Name="Indexes">
     <Key>
       <PropertyRef Name="Id" />
     </Key>
     <Property Name="Id" Type="int" Nullable="false" />
-    <Property Name="Name" Type="nchar" MaxLength="20" />
+    <Property Name="Name" Type="nchar" MaxLength="150" />
   </EntityType>
   <EntityType Name="Manufacture">
     <Key>
       <PropertyRef Name="Id" />
     </Key>
     <Property Name="Id" Type="int" Nullable="false" />
-    <Property Name="Name" Type="nchar" MaxLength="20" />
+    <Property Name="Name" Type="nchar" MaxLength="150" />
   </EntityType>
   <EntityType Name="Order">
     <Key>
@@ -36,9 +36,9 @@
     <Property Name="IdClient" Type="int" />
     <Property Name="IdOrderStatus" Type="int" />
     <Property Name="IdOrderPickupPoint" Type="int" />
-    <Property Name="OrderCreateDate" Type="nchar" MaxLength="20" />
-    <Property Name="OrderDeliveryDate" Type="nchar" MaxLength="20" />
-    <Property Name="Code" Type="nchar" MaxLength="20" />
+    <Property Name="OrderCreateDate" Type="nchar" MaxLength="150" />
+    <Property Name="OrderDeliveryDate" Type="nchar" MaxLength="150" />
+    <Property Name="Code" Type="nchar" MaxLength="150" />
   </EntityType>
   <EntityType Name="OrderProduct">
     <Key>
@@ -47,14 +47,14 @@
     <Property Name="Id" Type="int" Nullable="false" />
     <Property Name="OrderID" Type="int" />
     <Property Name="IdProduct" Type="int" />
-    <Property Name="Count" Type="nchar" MaxLength="20" />
+    <Property Name="Count" Type="nchar" MaxLength="150" />
   </EntityType>
   <EntityType Name="OrderStatus">
     <Key>
       <PropertyRef Name="Id" />
     </Key>
     <Property Name="Id" Type="int" Nullable="false" />
-    <Property Name="Name" Type="nchar" MaxLength="20" />
+    <Property Name="Name" Type="nchar" MaxLength="150" />
   </EntityType>
   <EntityType Name="PickPoint">
     <Key>
@@ -74,14 +74,15 @@
     <Property Name="IdProductName" Type="int" />
     <Property Name="IdManufacture" Type="int" />
     <Property Name="IdSupplier" Type="int" />
-    <Property Name="ProductArticleNumber" Type="nchar" MaxLength="20" />
-    <Property Name="ProductCost" Type="nchar" MaxLength="20" />
-    <Property Name="ProductDiscountAmount" Type="nchar" MaxLength="20" />
-    <Property Name="DiscountNow" Type="nchar" MaxLength="20" />
-    <Property Name="ProductQuantityInStock" Type="nchar" MaxLength="20" />
-    <Property Name="ProductDesription" Type="nchar" MaxLength="20" />
-    <Property Name="PhotoName" Type="nchar" MaxLength="20" />
-    <Property Name="ProductPhoto" Type="nchar" MaxLength="20" />
+    <Property Name="ProductArticleNumber" Type="nchar" MaxLength="150" />
+    <Property Name="ProductCost" Type="decimal" Precision="19" Scale="2" />
+    <Property Name="ProductDiscountAmount" Type="nchar" MaxLength="150" />
+    <Property Name="DiscountNow" Type="nchar" MaxLength="150" />
+    <Property Name="ProductQuantityInStock" Type="int" />
+    <Property Name="ProductDesription" Type="nchar" MaxLength="150" />
+    <Property Name="PhotoName" Type="nchar" MaxLength="150" />
+    <Property Name="ProductPhoto" Type="image" />
+    <Property Name="IdUnits" Type="int" />
     <Property Name="IdCategory" Type="int" />
   </EntityType>
   <EntityType Name="ProductName">
@@ -89,28 +90,28 @@
       <PropertyRef Name="Id" />
     </Key>
     <Property Name="Id" Type="int" Nullable="false" />
-    <Property Name="Name" Type="nchar" MaxLength="20" />
+    <Property Name="Name" Type="nchar" MaxLength="150" />
   </EntityType>
   <EntityType Name="Role">
     <Key>
       <PropertyRef Name="RoleID" />
     </Key>
     <Property Name="RoleID" Type="int" Nullable="false" />
-    <Property Name="RoleName" Type="nchar" MaxLength="20" />
+    <Property Name="RoleName" Type="nchar" MaxLength="150" />
   </EntityType>
   <EntityType Name="Street">
     <Key>
       <PropertyRef Name="Id" />
     </Key>
     <Property Name="Id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
-    <Property Name="Name" Type="nchar" MaxLength="20" />
+    <Property Name="Name" Type="nchar" MaxLength="150" />
   </EntityType>
   <EntityType Name="Supplier">
     <Key>
       <PropertyRef Name="Id" />
     </Key>
     <Property Name="Id" Type="int" Nullable="false" />
-    <Property Name="Name" Type="nchar" MaxLength="20" />
+    <Property Name="Name" Type="nchar" MaxLength="150" />
   </EntityType>
   <EntityType Name="sysdiagrams">
     <Key>
@@ -122,17 +123,24 @@
     <Property Name="version" Type="int" />
     <Property Name="definition" Type="varbinary(max)" />
   </EntityType>
+  <EntityType Name="Units">
+    <Key>
+      <PropertyRef Name="IdUnit" />
+    </Key>
+    <Property Name="IdUnit" Type="int" Nullable="false" />
+    <Property Name="NameOfUnits" Type="varchar" MaxLength="150" />
+  </EntityType>
   <EntityType Name="User">
     <Key>
       <PropertyRef Name="UserID" />
     </Key>
     <Property Name="UserID" Type="int" Nullable="false" />
     <Property Name="IdUserRole" Type="int" />
-    <Property Name="UserSurname" Type="nchar" MaxLength="20" />
-    <Property Name="UserName" Type="nchar" MaxLength="20" />
-    <Property Name="UserPatronymic" Type="nchar" MaxLength="20" />
-    <Property Name="UserLogin" Type="nchar" MaxLength="20" />
-    <Property Name="UserPassword" Type="nchar" MaxLength="20" />
+    <Property Name="UserSurname" Type="nchar" MaxLength="150" />
+    <Property Name="UserName" Type="nchar" MaxLength="150" />
+    <Property Name="UserPatronymic" Type="nchar" MaxLength="150" />
+    <Property Name="UserLogin" Type="nchar" MaxLength="150" />
+    <Property Name="UserPassword" Type="nchar" MaxLength="150" />
   </EntityType>
   <Association Name="FK_Order_OrderStatus">
     <End Role="OrderStatus" Type="Self.OrderStatus" Multiplicity="0..1" />
@@ -147,14 +155,14 @@
     </ReferentialConstraint>
   </Association>
   <Association Name="FK_Order_PickPoint">
-    <End Role="PickPoint" Type="Self.PickPoint" Multiplicity="1" />
-    <End Role="Order" Type="Self.Order" Multiplicity="0..1" />
+    <End Role="PickPoint" Type="Self.PickPoint" Multiplicity="0..1" />
+    <End Role="Order" Type="Self.Order" Multiplicity="*" />
     <ReferentialConstraint>
       <Principal Role="PickPoint">
         <PropertyRef Name="Id" />
       </Principal>
       <Dependent Role="Order">
-        <PropertyRef Name="OrderID" />
+        <PropertyRef Name="IdOrderPickupPoint" />
       </Dependent>
     </ReferentialConstraint>
   </Association>
@@ -167,18 +175,6 @@
       </Principal>
       <Dependent Role="OrderProduct">
         <PropertyRef Name="OrderID" />
-      </Dependent>
-    </ReferentialConstraint>
-  </Association>
-  <Association Name="FK_OrderProduct_Product">
-    <End Role="Product" Type="Self.Product" Multiplicity="0..1" />
-    <End Role="OrderProduct" Type="Self.OrderProduct" Multiplicity="*" />
-    <ReferentialConstraint>
-      <Principal Role="Product">
-        <PropertyRef Name="Id" />
-      </Principal>
-      <Dependent Role="OrderProduct">
-        <PropertyRef Name="IdProduct" />
       </Dependent>
     </ReferentialConstraint>
   </Association>
@@ -266,6 +262,18 @@
       </Dependent>
     </ReferentialConstraint>
   </Association>
+  <Association Name="FK_Product_Units">
+    <End Role="Units" Type="Self.Units" Multiplicity="0..1" />
+    <End Role="Product" Type="Self.Product" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Units">
+        <PropertyRef Name="IdUnit" />
+      </Principal>
+      <Dependent Role="Product">
+        <PropertyRef Name="IdUnits" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
   <Association Name="FK_User_Role">
     <End Role="Role" Type="Self.Role" Multiplicity="0..1" />
     <End Role="User" Type="Self.User" Multiplicity="*" />
@@ -293,6 +301,7 @@
     <EntitySet Name="Street" EntityType="Self.Street" Schema="dbo" store:Type="Tables" />
     <EntitySet Name="Supplier" EntityType="Self.Supplier" Schema="dbo" store:Type="Tables" />
     <EntitySet Name="sysdiagrams" EntityType="Self.sysdiagrams" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="Units" EntityType="Self.Units" Schema="dbo" store:Type="Tables" />
     <EntitySet Name="User" EntityType="Self.User" Schema="dbo" store:Type="Tables" />
     <AssociationSet Name="FK_Order_OrderStatus" Association="Self.FK_Order_OrderStatus">
       <End Role="OrderStatus" EntitySet="OrderStatus" />
@@ -304,10 +313,6 @@
     </AssociationSet>
     <AssociationSet Name="FK_OrderProduct_Order" Association="Self.FK_OrderProduct_Order">
       <End Role="Order" EntitySet="Order" />
-      <End Role="OrderProduct" EntitySet="OrderProduct" />
-    </AssociationSet>
-    <AssociationSet Name="FK_OrderProduct_Product" Association="Self.FK_OrderProduct_Product">
-      <End Role="Product" EntitySet="Product" />
       <End Role="OrderProduct" EntitySet="OrderProduct" />
     </AssociationSet>
     <AssociationSet Name="FK_PickPoint_City" Association="Self.FK_PickPoint_City">
@@ -336,6 +341,10 @@
     </AssociationSet>
     <AssociationSet Name="FK_Product_Supplier" Association="Self.FK_Product_Supplier">
       <End Role="Supplier" EntitySet="Supplier" />
+      <End Role="Product" EntitySet="Product" />
+    </AssociationSet>
+    <AssociationSet Name="FK_Product_Units" Association="Self.FK_Product_Units">
+      <End Role="Units" EntitySet="Units" />
       <End Role="Product" EntitySet="Product" />
     </AssociationSet>
     <AssociationSet Name="FK_User_Role" Association="Self.FK_User_Role">

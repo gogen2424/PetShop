@@ -54,7 +54,7 @@
                 <Image.Source>
                     <Binding Path="ProductPhoto">
                         <Binding.TargetNullValue>
-                            <BitmapImage UriSource="/Resources/picture.png"></BitmapImage>
+                            <BitmapImage UriSource="/Resources/logo.png"></BitmapImage>
                         </Binding.TargetNullValue>
                     </Binding>
                 </Image.Source>

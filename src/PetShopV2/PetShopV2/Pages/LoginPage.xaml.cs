@@ -27,7 +27,7 @@ namespace PetShopV2.Pages
 
         private void GuestButton_Click(object sender, RoutedEventArgs e)
         {
-
+            Classes.Manager.MainFrame.Navigate(new Pages.ProductList());
         }
 
         private void LoginButton_Click(object sender, RoutedEventArgs e)
@@ -55,18 +55,29 @@ namespace PetShopV2.Pages
                     var user = Data.Stepanyan_GeorgyEntities.GetContext().User
                         .Where(d => d.UserLogin == LoginTextBox.Text
                         && d.UserPassword == PasswordBox.Password).FirstOrDefault();
-                    switch (user.Role.RoleName)
+
+                    Classes.Manager.CurrentUser = user;
+
+                    try
                     {
-                        case "Администратор":
-                            Classes.Manager.MainFrame.Navigate(new Pages.AddeditProductPage());
-                            break;
-                        case "Клиент":
-                            Classes.Manager.MainFrame.Navigate(new Pages.ViewProductsPage());
-                            break;
-                        case "Менеджер":
-                            Classes.Manager.MainFrame.Navigate(new Pages.ViewProductsPage());
-                            break;
+                        switch (user.Role.RoleName)
+                        {
+                            case "Администратор":
+                                Classes.Manager.MainFrame.Navigate(new Pages.AdminLKPage());
+                                break;
+                            case "Клиент":
+                                Classes.Manager.MainFrame.Navigate(new Pages.ProductList());
+                                break;
+                            case "Менеджер":
+                                Classes.Manager.MainFrame.Navigate(new Pages.ProductList());
+                                break;
+                        }
                     }
+                    catch (Exception ex)
+                    {
+                        MessageBox.Show(ex.ToString(), "Ошибка!", MessageBoxButton.OK, MessageBoxImage.Error);
+                    }
+                 
 
                     MessageBox.Show("Успех!", "Успех!", MessageBoxButton.OK, MessageBoxImage.Information);
 
@@ -83,5 +94,6 @@ namespace PetShopV2.Pages
             }
             
         }
+       
     }
 }

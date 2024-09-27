@@ -90,6 +90,7 @@
           <ScalarProperty Name="ProductDesription" ColumnName="ProductDesription" />
           <ScalarProperty Name="PhotoName" ColumnName="PhotoName" />
           <ScalarProperty Name="ProductPhoto" ColumnName="ProductPhoto" />
+          <ScalarProperty Name="IdUnits" ColumnName="IdUnits" />
           <ScalarProperty Name="IdCategory" ColumnName="IdCategory" />
         </MappingFragment>
       </EntityTypeMapping>
@@ -134,6 +135,14 @@
           <ScalarProperty Name="diagram_id" ColumnName="diagram_id" />
           <ScalarProperty Name="version" ColumnName="version" />
           <ScalarProperty Name="definition" ColumnName="definition" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="Units">
+      <EntityTypeMapping TypeName="Stepanyan_GeorgyModel.Units">
+        <MappingFragment StoreEntitySet="Units">
+          <ScalarProperty Name="IdUnit" ColumnName="IdUnit" />
+          <ScalarProperty Name="NameOfUnits" ColumnName="NameOfUnits" />
         </MappingFragment>
       </EntityTypeMapping>
     </EntitySetMapping>

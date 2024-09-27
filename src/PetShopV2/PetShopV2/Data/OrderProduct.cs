@@ -20,6 +20,5 @@ namespace PetShopV2.Data
         public string Count { get; set; }
     
         public virtual Order Order { get; set; }
-        public virtual Product Product { get; set; }
     }
 }
